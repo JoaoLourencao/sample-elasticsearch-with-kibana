@@ -1,0 +1,191 @@
+{
+	"info": {
+		"_postman_id": "97b1a62b-4a0a-4fc0-ba2f-fcd5ba909fee",
+		"name": "Elastic Search",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11924257"
+	},
+	"item": [
+		{
+			"name": "create product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"product_id\": \"1\",\r\n    \"name\": \"Iphone 16 Pro Max\",\r\n    \"category\": \"Electronics\",\r\n    \"description\": \"Advanced features smartphone\",\r\n    \"price\": 699.99,\r\n    \"availability\": true,\r\n    \"rating\": 4.5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/products?page=1&size=20",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"products"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "20"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/products/25",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"products",
+						"25"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update product",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"price\": 649.99,\r\n    \"availability\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/products/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete product",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/products/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/products/search?q=13",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"products",
+						"search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "13"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bulk insert",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"product_id\": \"21\",\r\n        \"name\": \"iPhone 7\",\r\n        \"category\": \"Smartphones\",\r\n        \"description\": \"Apple iPhone 7 with A10 Fusion chip, 32GB storage, and Retina HD display.\",\r\n        \"price\": 199.00,\r\n        \"availability\": false,\r\n        \"rating\": 4.0\r\n    },\r\n    {\r\n        \"product_id\": \"22\",\r\n        \"name\": \"iPhone 7 Plus\",\r\n        \"category\": \"Smartphones\",\r\n        \"description\": \"Apple iPhone 7 Plus with A10 Fusion chip, 128GB storage, and dual-camera system.\",\r\n        \"price\": 249.00,\r\n        \"availability\": true,\r\n        \"rating\": 4.2\r\n    },\r\n    {\r\n        \"product_id\": \"23\",\r\n        \"name\": \"iPhone 6s\",\r\n        \"category\": \"Smartphones\",\r\n        \"description\": \"Apple iPhone 6s with A9 chip, 64GB storage, and Retina HD display.\",\r\n        \"price\": 149.00,\r\n        \"availability\": false,\r\n        \"rating\": 3.9\r\n    },\r\n    {\r\n        \"product_id\": \"24\",\r\n        \"name\": \"iPhone 6s Plus\",\r\n        \"category\": \"Smartphones\",\r\n        \"description\": \"Apple iPhone 6s Plus with A9 chip, 128GB storage, and Retina HD display.\",\r\n        \"price\": 199.00,\r\n        \"availability\": true,\r\n        \"rating\": 4.1\r\n    },\r\n    {\r\n        \"product_id\": \"25\",\r\n        \"name\": \"iPhone 6\",\r\n        \"category\": \"Smartphones\",\r\n        \"description\": \"Apple iPhone 6 with A8 chip, 32GB storage, and Retina HD display.\",\r\n        \"price\": 129.00,\r\n        \"availability\": false,\r\n        \"rating\": 3.8\r\n    },\r\n    {\r\n        \"product_id\": \"26\",\r\n        \"name\": \"iPhone 5s\",\r\n        \"category\": \"Smartphones\",\r\n        \"description\": \"Apple iPhone 5s with A7 chip, 16GB storage, and compact design.\",\r\n        \"price\": 99.00,\r\n        \"availability\": false,\r\n        \"rating\": 3.7\r\n    },\r\n    {\r\n        \"product_id\": \"27\",\r\n        \"name\": \"iPhone 5\",\r\n        \"category\": \"Smartphones\",\r\n        \"description\": \"Apple iPhone 5 with A6 chip, 16GB storage, and Retina display.\",\r\n        \"price\": 89.00,\r\n        \"availability\": false,\r\n        \"rating\": 3.6\r\n    },\r\n    {\r\n        \"product_id\": \"28\",\r\n        \"name\": \"iPhone 4s\",\r\n        \"category\": \"Smartphones\",\r\n        \"description\": \"Apple iPhone 4s with A5 chip, 8GB storage, and compact design.\",\r\n        \"price\": 59.00,\r\n        \"availability\": false,\r\n        \"rating\": 3.5\r\n    },\r\n    {\r\n        \"product_id\": \"29\",\r\n        \"name\": \"iPhone 4\",\r\n        \"category\": \"Smartphones\",\r\n        \"description\": \"Apple iPhone 4 with A4 chip, 8GB storage, and Retina display.\",\r\n        \"price\": 49.00,\r\n        \"availability\": false,\r\n        \"rating\": 3.3\r\n    },\r\n    {\r\n        \"product_id\": \"30\",\r\n        \"name\": \"iPhone 3GS\",\r\n        \"category\": \"Smartphones\",\r\n        \"description\": \"Apple iPhone 3GS with S5L8920 chip, 16GB storage, and original design.\",\r\n        \"price\": 29.00,\r\n        \"availability\": false,\r\n        \"rating\": 3.0\r\n    }\r\n]\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/products/bulk",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"products",
+						"bulk"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
